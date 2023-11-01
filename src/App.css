@@ -32,7 +32,97 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.markdown-preview.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.markdown-preview.dark {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+}
+
+/* Overall layout adjustments for better spacing and alignment */
+.markdown-preview {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  border-radius: 5px;
+}
+
+/* Dynamic theme changing with CSS variables */
+:root {
+  --background-color-light: #fff;
+  --text-color-light: #000;
+  --background-color-dark: #333;
+  --text-color-dark: #fff;
+}
+
+body.light {
+  --background-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
+}
+
+body.dark {
+  --background-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+}
+
+/* Style the select dropdown for theme change */
+select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* Textarea styling for better readability */
+textarea {
+  background: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  resize: vertical;
+  /* Allows only vertical resizing */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+
+  .markdown-preview,
+  textarea {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Add more specific styles for syntax highlighting */
+/* You can customize these styles based on the Prism theme you are using */
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #999;
+}
+
+/* ...add more Prism token styles as needed... */
+
+/* Add transitions for smooth theme change */
+.markdown-preview,
+textarea,
+select {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
